@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Jirbi - Web- und Anwendungsentwickler</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: #1a1a1a;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.8rem 1.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #00aaff;
+        }
+        .image-container img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            margin-right: 10px;
+            margin-left: 20px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        .intro-text {
+            margin-left: 10px;
+            font-size: 1rem;
+            animation: color-change 3s infinite; /* Animation */
+
+        }
+
+        @keyframes color-change {
+        0% {
+            color: #ffec42; /* Gold */
+        }
+        25% {
+            color: #00ff00; /* Grün */
+        }
+        50% {
+            color: #0000ff; /* Blau */
+        }
+        75% {
+            color: #ffa500; /* Orange */
+        }
+        100% {
+            color: #c448a9; /* Viollet zu Gold */
+        }
+    }
+
+        section {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #444;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        .cyber-animation {
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+            background: black;
+        }
+
+        .matrix {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: monospace;
+            font-size: 1rem;
+            color: #00ff00;
+        }
+
+        .matrix span {
+            position: absolute;
+            top: -100px;
+            animation: drop 2s linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes drop {
+            0% {
+                top: -150px;
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            100% {
+                top: 100%;
+                opacity: 0.2;
+            }
+        }
+
+        /* Neue Styles für aufsteigende Bits */
+        .rising-bits {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .rising-bit {
+            position: absolute;
+            bottom: 0;
+            width: 10px;
+            height: 10px;
+            background: #00ff00;
+            animation: rise 3s linear infinite;
+        }
+
+        @keyframes rise {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+
+        <div class="image-container">
+            <img src="meinbild.jpg" alt="David Jirbi">
+        </div>
+        <nav>
+            <a href="index.html">Startseite</a>
+            <a href="lebenslauf.html">Lebenslauf</a>
+            <a href="ueber-mich.html">Über mich</a>
+            <a href="kontakt.html">Kontakt</a>
+            <a href="innovatives.html">Innovatives</a>
+        </nav>
+        <div>
+            <h1>David Jirbi</h1>
+            <p class="intro-text">Web- und Anwendungsentwickler</p>
+        </div>
+    </header>
+
+     <!-- Cyber Animation -->
+     <div class="cyber-animation">
+        <div class="matrix">
+            <!-- Generierte Bit-Zeichenketten -->
+            <span style="left: 5%;">1 01001.D..Jirbi</span>
+            <span style="left: 15%;">DA110101..</span>
+            <span style="right: 25%;">JirbiDDDD0 d Jirbi.....</span>
+            <span style="left: 35%;">01010Jirbi1j..Jirbi..0101010DDAVID D..</span>
+            <span style="right: 45%;">111J010...D01.</span>
+        </div>
+
+        <!-- Neue aufsteigende Bits -->
+        <div class="rising-bits"></div>
+    </div>
+
+
+    <section>
+        <h2>Über mich</h2>
+        
+        <h2>Ihr IT-Allrounder</h2>
+
+        <p>Hy und Willkommen ! Ich bin David Jirbi, ein vielseitiger Entwickler mit einer Leidenschaft für elegante Code-Lösungen. Mein beruflicher Weg führte mich von Handwerk und Handel in die faszinierende Welt der IT. Hier setze ich meine Kreativität ein, um Ihre digitalen Visionen zu verwirklichen.</p>
+    
+        <h3>Ihre digitalen Projekte in den besten Händen</h3>
+    
+        <p>Stellen Sie sich vor, ich wäre Ihr persönliches Schweizer Taschenmesser für alle IT-Herausforderungen. Ob Sie einen modernen Webshop für Ihr kleines Unternehmen benötigen oder eine skalierbare Cloud-Infrastruktur für Ihr mittelständisches Unternehmen aufbauen möchten – ich finde die perfekte Lösung für Sie.</p>
+    
+        <h4>Meine Stärken:</h4>
+        <ul>
+            <li><strong>Vielseitigkeit:</strong> Ich beherrsche eine Vielzahl von Programmiersprachen (HTML, CSS, JavaScript, Python, C# ) und bin bestens vertraut mit den großen Cloud-Anbietern (AWS, Azure, Google Cloud).</li>
+            <li><strong>Kreativität:</strong> Jede technische Lösung kann auch schön sein! Ich liebe es, innovative Wege zu finden, um Ihre Projekte zum Leben zu erwecken.</li>
+            <li><strong>Pragmatismus:</strong> Ich stehe für klare Strukturen und effiziente Prozesse. So sparen wir gemeinsam Zeit und Geld.</li>
+            <li><strong>Humor:</strong> Auch in der IT darf man mal lachen. Ein bisschen Humor lockert die Stimmung auf und macht die Zusammenarbeit angenehmer.</li>
+        </ul>
+    
+        <h4>Warum Sie mich wählen sollten:</h4>
+        <p>Weil ich nicht nur ein Entwicklerbin , ich höre Ihnen zu, verstehe Ihre Bedürfnisse und setze sie in die Tat um. Dabei lege ich großen Wert auf eine transparente Kommunikation.</p>
+    
+        <p><strong>Meine einzigartige Verkaufsposition :</strong> Ich kombiniere technisches Know-how mit einem Gespür für Design und Benutzerfreundlichkeit. So entstehen nicht nur funktionale, sondern auch ästhetisch ansprechende Lösungen.</p>
+    
+        <h3>Lassen Sie uns gemeinsam etwas bewegen!</h3>
+        <p>Kontaktieren Sie mich gerne für ein unverbindliches Gespräch.</p>
+
+
+
+ 
+        <h2>Meine Leistungen</h2>
+        <ul>
+            <li>✨ Erstellung moderner Webseiten (Landingpages, Portfolios, Blogs...)</li>
+            <li>🛒 Entwicklung und Optimierung von Webshops</li>
+            <li>🔧 Wartung und Pflege bestehender Webseiten</li>
+            <li>💻 Frontend- und Backend-Entwicklung mit Fokus auf Benutzerfreundlichkeit</li>
+            <li>☁️ Cloud-Integration (AWS, Google Cloud, Microsoft Azure)</li>
+        </ul>
+
+        <h2>Technische Stärken</h2>
+        <ul>
+            <li>📌 Programmiersprachen: C#, PHP, HTML, CSS, SQL , Python</li>
+            <li>⚙️ Frameworks: ASP.NET, .NET Core</li>
+            <li>🌐 Cloud-Technologien: AWS, Google Cloud, Microsoft Azure</li>
+            <li>🗄️ Datenbanken: MySQL, MSSQL, MongoDB, Oracle </li>
+        </ul>
+
+        <h2>Mein Hintergrund</h2>
+        <p>Mit einer Ausbildung und langjähriger Erfahrung in Handwerk und Handel habe ich ein starkes Fundament in praktischer Problemlösung. Seit 2018 konzentriere ich mich auf die Web- und Anwendungsentwicklung die ich mit einer Weiterbildung im Jahr 2022 festigen konnte . Ich erlente die Programmiersprache C# sowie weitere Skills und bringe seither  frische Perspektiven in jedes Projekt.</p>
+
+        <h2>Kontaktiere mich</h2>
+        <ul>
+            <li>📍 Adresse: Kaiserstraße 76, 44629 Herne, Deutschland</li>
+            <li>📧 E-Mail: <a href="mailto:1daoud28@gmail.com">1daoud28@gmail.com</a></li>
+            <li>📞 Telefon: +49 163 62 42 866</li>
+        </ul>
+    </section>
+    <footer>
+        <p>&copy; 2024 David Jirbi | Web- und Anwendungsentwicklung</p>
+    </footer>
+   
+    <script>
+        // Funktion für herunterfallende Bits
+        function createFallingBit() {
+            const matrixContainer = document.querySelector(".matrix");
+            const bit = document.createElement("span");
+            bit.textContent = Math.random() > 0.5 ? "1" : "0";
+            bit.style.left = Math.random() * 100 + "%";
+            bit.style.animationDuration = Math.random() * 3 + 2 + "s";
+            matrixContainer.appendChild(bit);
+            bit.addEventListener("animationend", () => bit.remove());
+        }
+
+        // Neue Funktion für aufsteigende Bits
+        function createRisingBit() {
+            const risingContainer = document.querySelector(".rising-bits");
+            const bit = document.createElement("div");
+            bit.classList.add("rising-bit");
+            bit.style.left = Math.random() * 100 + "%";
+            bit.style.animationDuration = Math.random() * 3 + 2 + "s";
+            risingContainer.appendChild(bit);
+            bit.addEventListener("animationend", () => bit.remove());
+        }
+
+        // Starte die Animationen
+        setInterval(createFallingBit, 150); // Herunterfallende Bits
+        setInterval(createRisingBit, 300); // Aufsteigende Bits
+    </script>
+
+
+
+
+</body>
+</html>

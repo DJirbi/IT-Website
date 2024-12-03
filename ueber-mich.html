@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über mich - David Jirbi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #0f0f0f;
+            color: #f4f4f9;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.2rem;
+        }
+
+        nav {
+            margin-top: 1rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .cyber-animation {
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+            background: black;
+        }
+
+        .matrix {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: monospace;
+            font-size: 1rem;
+            color: #00ff00;
+        }
+
+        .matrix span {
+            position: absolute;
+            top: -100px;
+            animation: drop 2s linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes drop {
+            0% {
+                top: -150px;
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            100% {
+                top: 100%;
+                opacity: 0.2;
+            }
+        }
+
+        /* Neue Styles für aufsteigende Bits */
+        .rising-bits {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .rising-bit {
+            position: absolute;
+            bottom: 0;
+            width: 10px;
+            height: 10px;
+            background: #00ff00;
+            animation: rise 3s linear infinite;
+        }
+
+        @keyframes rise {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background: #1f1f1f;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            color: #00aaff;
+            text-align: center;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Über mich</h1>
+        <p>Erfahre mehr über meine Reise und meine Leidenschaft</p>
+        <nav>
+            <a href="index.html">Startseite</a>
+            <a href="lebenslauf.html">Lebenslauf</a>
+            <a href="fotos.html">Fotos</a>
+            <a href="ueber-mich.html">Über mich</a>
+            <a href="kontakt.html">Kontakt</a>
+            <a href="innovatives.html">Innovatives</a>
+        </nav>
+    </header>
+
+    <!-- Cyber Animation -->
+    <div class="cyber-animation">
+        <div class="matrix">
+            <!-- Generierte Bit-Zeichenketten -->
+            <span style="left: 5%;">101001.D..Jirbi</span>
+            <span style="left: 15%;">DA110101...</span>
+            <span style="right: 25%;">JirbiDDDD0dddJirbi.....</span>
+            <span style="left: 35%;">01010Jirbi1j...Jirbi..0101010DDAVIDD..</span>
+            <span style="right: 45%;">111J010...D01.</span>
+        </div>
+
+        <!-- Neue aufsteigende Bits -->
+        <div class="rising-bits"></div>
+    </div>
+
+    <div class="container">
+        <h2>Wer bin ich?</h2>
+        <p>
+            Hallo, ich bin David Jirbi – ein Entwickler mit einer unstillbaren Neugier für Technologie 
+            und einer großen Begeisterung für kreative Lösungen. Mein Weg begann im Handwerk, 
+            führte mich über den Automobilsektor hin zur Welt der Bits und Bytes. Diese Vielfalt hat 
+            mich geprägt und mir einen einzigartigen Blick auf technische Herausforderungen gegeben.
+        </p>
+
+        <h2>Mein Stil</h2>
+        <p>
+            Ob eleganter Code oder benutzerfreundliches Design – für mich stehen Qualität und 
+            Innovation immer im Mittelpunkt. Ich liebe es, komplexe Probleme in einfache, intuitive 
+            Lösungen zu verwandeln, die nicht nur funktionieren, sondern auch begeistern.
+        </p>
+
+        <h2>Warum ich?</h2>
+        <p>
+            Mit meiner Leidenschaft für Technik und meiner Fähigkeit, mich in unterschiedlichste 
+            Projekte einzuarbeiten, biete ich Ihnen die perfekte Mischung aus Kreativität und 
+            Professionalität. Ich bin nicht nur Entwickler, sondern auch Problemlöser, Visionär und 
+            ein zuverlässiger Partner für Ihre digitalen Projekte.
+        </p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 David Jirbi | Web- und Anwendungsentwicklung</p>
+    </footer>
+
+    <script>
+        // Funktion für herunterfallende Bits
+        function createFallingBit() {
+            const matrixContainer = document.querySelector(".matrix");
+            const bit = document.createElement("span");
+            bit.textContent = Math.random() > 0.5 ? "1" : "0";
+            bit.style.left = Math.random() * 100 + "%";
+            bit.style.animationDuration = Math.random() * 3 + 2 + "s";
+            matrixContainer.appendChild(bit);
+            bit.addEventListener("animationend", () => bit.remove());
+        }
+
+        // Neue Funktion für aufsteigende Bits
+        function createRisingBit() {
+            const risingContainer = document.querySelector(".rising-bits");
+            const bit = document.createElement("div");
+            bit.classList.add("rising-bit");
+            bit.style.left = Math.random() * 100 + "%";
+            bit.style.animationDuration = Math.random() * 3 + 2 + "s";
+            risingContainer.appendChild(bit);
+            bit.addEventListener("animationend", () => bit.remove());
+        }
+
+        // Starte die Animationen
+        setInterval(createFallingBit, 150); // Herunterfallende Bits
+        setInterval(createRisingBit, 300); // Aufsteigende Bits
+    </script>
+     <a href="index.html" class="back-link">Zurück zur Startseite</a>
+</body>
+</html>
