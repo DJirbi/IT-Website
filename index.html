@@ -13,15 +13,24 @@
             color: #333;
             line-height: 1.6;
         }
-        header {
-            background: #1a1a1a;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.8rem 1.5rem;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+         header {
+    background: #1a1a1a;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 100%; /* Beschränkt die Breite des Headers */
+    overflow: hidden; /* Verhindert, dass Inhalte über den Header hinausgehen */
+    box-sizing: border-box; /* Sicherstellt, dass Padding in die Gesamtbreite einbezogen wird */
+}
+
+@media (max-width: 768px) { /* Für mobile Geräte */
+    header {
+        flex-direction: column; /* Stapelt die Elemente übereinander */
+        padding: 1rem; /* Passt das Padding an, um mehr Platz zu schaffen */
+    }
         nav {
             display: flex;
             gap: 15px;
