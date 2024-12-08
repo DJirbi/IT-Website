@@ -13,24 +13,85 @@
             color: #333;
             line-height: 1.6;
         }
+        
+
+#spbtn{
+    color: #00aaff;
+    background-color: #000000;
+    animation: color-change 2s infinite; /* duration timing-function delay iteration-count direction fill-mode; */
+
+    align-items: center;
+
+}
+
         header {
-            background: #1a1a1a;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.8rem 1.5rem;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+    background: #1a1a1a;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 100%; /* Beschränkt die Breite des Headers */
+    overflow: hidden; /* Verhindert, dass Inhalte über den Header hinausgehen */
+    box-sizing: border-box; /* Sicherstellt, dass Padding in die Gesamtbreite einbezogen wird */
+    
+   
+}
+
+
+    
+
+
+@media (max-width: 767px) { /* Für mobile Geräte */
+    
+
+    
+    
+    
+    header
+    {
+        flex-direction: column; /* Stapelt die Elemente übereinander */
+        padding: 1rem; /* Passt das Padding an, um mehr Platz zu schaffen */
+    }
+
+    nav {
+        text-align: center; /* Zentriert die Navigation */
+        margin-top: 1rem; /* Fügt etwas Abstand nach oben hinzu */
+    }
+
+    #spbtn{
+    color: #00aaff;
+    background-color: #000000;
+    animation: color-change 2s infinite; /* duration timing-function delay iteration-count direction fill-mode; */
+
+    text-align: center;
+
+       }
+
+
+
+
+    .image-container img {
+        width: 60px; /* Reduziert die Bildgröße auf mobilen Geräten */
+        height: 60px;
+    }
+
+}
+
         nav {
             display: flex;
-            gap: 15px;
+            gap: 5px;
+            padding: auto;
+            margin: auto;
         }
         nav a {
             text-decoration: none;
             color: #fff;
             font-size: 1rem;
             transition: color 0.3s;
+            padding: auto;
+            margin: auto;
         }
         nav a:hover {
             color: #00aaff;
@@ -197,13 +258,13 @@
         <!-- Neue aufsteigende Bits -->
         <div class="rising-bits"></div>
     </div>
-
-
+    <button id ="spbtn"onclick="requestPermissionAndSpeak()">Sprachansage starten</button>
+   
     <section>
         <h2>Über mich</h2>
-        
+               <!-- <a href="#" onclick="test()">Test</a> //Test für voice models-->
         <h2>Ihr IT-Allrounder</h2>
-
+         
         <p>Hy und Willkommen ! Ich bin David Jirbi, ein vielseitiger Entwickler mit einer Leidenschaft für elegante Code-Lösungen. Mein beruflicher Weg führte mich von Handwerk und Handel in die faszinierende Welt der IT. Hier setze ich meine Kreativität ein, um Ihre digitalen Visionen zu verwirklichen.</p>
     
         <h3>Ihre digitalen Projekte in den besten Händen</h3>
@@ -219,7 +280,7 @@
         </ul>
     
         <h4>Warum Sie mich wählen sollten:</h4>
-        <p>Weil ich nicht nur ein Entwicklerbin , ich höre Ihnen zu, verstehe Ihre Bedürfnisse und setze sie in die Tat um. Dabei lege ich großen Wert auf eine transparente Kommunikation.</p>
+        <p>Weil ich nicht nur ein Entwickler bin , ich höre Ihnen zu, verstehe Ihre Bedürfnisse und setze sie in die Tat um. Dabei lege ich großen Wert auf eine transparente Kommunikation.</p>
     
         <p><strong>Meine einzigartige Verkaufsposition :</strong> Ich kombiniere technisches Know-how mit einem Gespür für Design und Benutzerfreundlichkeit. So entstehen nicht nur funktionale, sondern auch ästhetisch ansprechende Lösungen.</p>
     
@@ -283,10 +344,80 @@
             bit.addEventListener("animationend", () => bit.remove());
         }
 
-        // Starte die Animationen
-        setInterval(createFallingBit, 150); // Herunterfallende Bits
-        setInterval(createRisingBit, 300); // Aufsteigende Bits
-    </script>
+
+ // Starte die Animationen
+setInterval(createFallingBit, 150); // Herunterfallende Bits
+setInterval(createRisingBit, 300); // Aufsteigende Bits
+
+
+
+
+function requestPermissionAndSpeak() {
+    let isSpeaking = false;
+  if ('speechSynthesis' in window) {
+    speechSynthesis.onvoiceschanged = () => {
+       
+        if (isSpeaking) return;
+            isSpeaking = true;
+      if (speechSynthesis.pending || speechSynthesis.speaking) return;
+
+      if (Notification.permission !== 'granted') {
+        Notification.requestPermission().then(permission => {
+          if (permission === 'granted') {
+            // Benutzer hat die Berechtigung erteilt
+            const utterance = new SpeechSynthesisUtterance();
+            utterance.text = "Willkommen auf meiner EiTi Webseite, Ich freu mich das Sie hier sind!";
+
+            // Fehlerbehandlung
+            utterance.onerror = event => {
+              console.error('Fehler beim Abspielen:', event.error);
+              if (event.error === 'not-allowed') {
+                console.log('Der Benutzer hat die Berechtigung widerrufen.');
+                // Hier könntest du eine alternative Aktion ausführen
+              } else if (event.error === 'network') {
+                console.log('Netzwerkfehler beim Abspielen.');
+              } else {
+                console.log('Unbekannter Fehler:', event.error);
+              }
+            };
+
+            // Überprüfe, ob eine Stimme verfügbar ist
+            const voices = speechSynthesis.getVoices();
+            if (voices.length === 0) {
+              console.error('Keine Stimme verfügbar.');
+              return;
+            }
+
+            // Wähle eine geeignete Stimme aus (optional)
+             utterance.voice = voices.find(voice => voice.name === 'Google Deutsch');
+
+            speechSynthesis.speak(utterance);
+          } else {
+            console.log('Der Benutzer hat die Berechtigung verweigert.');
+          }
+        });
+      } else {
+        // Berechtigung bereits erteilt
+        const utterance = new SpeechSynthesisUtterance('Hallo! Ich darf jetzt sprechen.');
+        speechSynthesis.speak(utterance);
+      }
+    };
+  } else {
+    console.error('Dein Browser unterstützt die Sprachsynthese nicht.');
+  }
+
+  function test(){
+                console.log(window.speechSynthesis.getVoices())
+                console.writeline(log);
+            }
+
+
+
+}
+
+
+
+</script>
 
 
 
